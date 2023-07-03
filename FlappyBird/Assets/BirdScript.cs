@@ -8,6 +8,7 @@ public class BirdScript : MonoBehaviour
     public float flapStrength;
     public LogicScript logic;
     public bool birdIsAlive = true;
+    public AudioSource flap;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,11 @@ public class BirdScript : MonoBehaviour
     {   
         if(Input.GetKeyDown(KeyCode.Space) && birdIsAlive){ // Carregou no espaço
             myRigidbody.velocity = Vector2.up * flapStrength;
+            flap.Play();
+        }
+
+        if(transform.position.y > 17 || transform.position.y < -17){
+            logic.gameOver(); 
         }
     }
 

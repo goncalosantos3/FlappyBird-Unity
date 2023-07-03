@@ -9,6 +9,7 @@ public class LogicScript : MonoBehaviour
     public int playerScore;
     public Text scoreText;
     public GameObject gameOverScreen;
+    public AudioSource point;
 
     public void restartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -21,6 +22,7 @@ public class LogicScript : MonoBehaviour
     public void addScore(int scoreToAdd){
         playerScore += scoreToAdd;
         scoreText.text = playerScore.ToString();
+        point.Play();
     }
 
     // Start is called before the first frame update
